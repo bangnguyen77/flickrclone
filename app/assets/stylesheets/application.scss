@@ -70,7 +70,14 @@ body {
 }
 
 .text-muted {
-
   width: auto;
   padding: 0 15px;
+}
+
+.navbar-nav {
+  float: right;
+}
+
+ul {
+  list-style: none;
 }
