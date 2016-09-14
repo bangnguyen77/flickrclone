@@ -44,9 +44,9 @@ before_filter :authenticate_user!, except: [:index, :show]
     flash[:notice] = "Your image has been deleted!"
     redirect_to images_path
   end
-  
+
 private
   def image_params
-    params.require(:image).permit(:title, :email, :image)
+    params.require(:image).permit(:title, :user_id, :image)
   end
 end
