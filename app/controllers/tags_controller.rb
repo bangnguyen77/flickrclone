@@ -11,18 +11,18 @@ before_filter :authenticate_user!, except: [:index, :show]
     @user = User.find(current_user.id)
     @tags = Tag.where(description: tag_params[:description])
     if @tags != []
-      if @image.tags.include?(@tags.first)
+      @tag = @tags.first
+      if @image.tags.include?(@tag)
         flash[:alert] = "Image already has that tag"
         redirect_to image_path(@image)
       else
-        @image.tags.push(@tags.first)
+        @image.tags.push(@tag)
         flash[:notice] = "Tag added!"
         redirect_to image_path(@image)
       end
     else
       @tag = Tag.new(tag_params)
       if @tag.save
-        @image.tags.push(@tag)
         flash[:notice] = "Tag created!"
         redirect_to image_path(@image)
       else
