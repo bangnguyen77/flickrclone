@@ -5,5 +5,7 @@ Rails.application.routes.draw do
 
   resources :users, :only => [:show]
 
-  resources :images
+  resources :images do
+    resources :tags
+  end
 end

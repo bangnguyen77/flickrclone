@@ -1,3 +1,23 @@
 <h1><%= @image.title %></h1>
 
 <%= image_tag @image.image.url(:medium) %>
+
+<p>Tags:
+  <% if @image.tags.any? %>
+      <% @image.tags.each do |tag| %>
+      <%=  tag.description %>
+      <% end %>
+  <% else %>
+  None yet!
+  <% end %>
+</p>
+
+<h3>Add a tag:</h3>
+<%= form_for [@image, @tag], :method => "post" do |f| %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.hidden_field(:user_ids, :value => [current_user.id]) %>
+  <%= f.hidden_field(:image_ids, :value => [@image.id]) %>
+  <%= f.submit "Submit" %>
+<% end %>

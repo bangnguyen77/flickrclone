@@ -6,6 +6,7 @@ before_filter :authenticate_user!, except: [:index, :show]
 
   def show
     @image = Image.find(params[:id])
+    @tag = Tag.new
   end
 
   def new
