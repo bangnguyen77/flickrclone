@@ -13,6 +13,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem "paperclip", "~> 5.0.0"
+gem 'aws-sdk', '~> 2.3'
 
 
 group :development, :test do
