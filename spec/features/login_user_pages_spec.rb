@@ -11,7 +11,7 @@ describe "the user login process" do
     fill_in 'Email', :with => 'person@gmail.com'
     fill_in 'Password', :with => 'password'
     click_on 'Log in'
-    expect(page).to have_content 'Logged in as person@gmail.com'
+    expect(page).to have_content 'Person'
   end
 
   it "allows a user to see their profile page" do
@@ -19,7 +19,7 @@ describe "the user login process" do
     fill_in 'Email', :with => 'person@gmail.com'
     fill_in 'Password', :with => 'password'
     click_on 'Log in'
-    click_on 'My Profile'
-    expect(page).to have_content "person@gmail.com's profile" 
+    click_on 'Person'
+    expect(page).to have_content "Person's profile"
   end
 end
