@@ -24,14 +24,16 @@ before_filter :authenticate_user!, except: [:index, :show]
   end
 
   def edit
+    @user = User.find(current_user.id)
     @image = Image.find(params[:id])
   end
 
   def update
+    @user = User.find(current_user.id)
     @image = Image.find(params[:id])
     if @image.update(image_params)
       flash[:notice] = "Your image has been edited!"
-      redirect_to images_path
+      redirect_to user_path(@user)
     else
       flash[:alert] = "Whoops, your image was not edited!"
       render :edit
@@ -39,10 +41,11 @@ before_filter :authenticate_user!, except: [:index, :show]
   end
 
   def destroy
+    @user = User.find(current_user.id)
     @image = Image.find(params[:id])
     @image.destroy
     flash[:notice] = "Your image has been deleted!"
-    redirect_to images_path
+    redirect_to user_path(@user)
   end
 
 private
