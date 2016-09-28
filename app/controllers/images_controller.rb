@@ -2,6 +2,11 @@ class ImagesController < ApplicationController
 before_filter :authenticate_user!, except: [:index, :show]
   def index
     @images = Image.all
+    @hash = Gmaps4rails.build_markers(@images) do |image, marker|
+      marker.lat image.latitude
+      marker.lng image.longitude
+      marker.infowindow render_to_string(:partial => '/images/marker', :locals => { :image => image})
+    end
   end
 
   def show

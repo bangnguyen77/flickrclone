@@ -1,0 +1,9 @@
+<h3> <%= image.title %> </h3>
+<% if image.tags.any? %>
+<h5> Tags: </h5>
+  <ul>
+    <% image.tags.each do |tag| %>
+      <%= tag.description %>
+    <% end %>
+  </ul>
+<% end %>
