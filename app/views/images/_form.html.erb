@@ -2,6 +2,8 @@
 
   <%= f.label :title %>
   <%= f.text_field :title %>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
   <%= f.label :image %>
   <%= f.file_field :image %>
   <%= f.hidden_field(:user_id, :value => current_user.id) %>

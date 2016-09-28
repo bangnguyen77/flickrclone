@@ -51,6 +51,6 @@ before_filter :authenticate_user!, except: [:index, :show]
 
 private
   def image_params
-    params.require(:image).permit(:title, :user_id, :image)
+    params.require(:image).permit(:title, :user_id, :image, :address)
   end
 end
