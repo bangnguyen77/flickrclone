@@ -15,6 +15,7 @@ gem 'devise'
 gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk', '~> 2.3'
 gem 'geocoder', '~> 1.4'
+gem 'gmaps4rails', '~> 2.1.2'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -25,6 +26,7 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'simplecov', require: false
+  gem 'dotenv-rails'
 end
 
 group :development do

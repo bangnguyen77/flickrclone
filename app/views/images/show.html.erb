@@ -1,3 +1,5 @@
+
+
 <h1><%= @image.title %></h1>
 
 <%= image_tag @image.image.url(:medium) %>
@@ -20,4 +22,20 @@
   <%= f.hidden_field(:user_ids, :value => [current_user.id]) %>
   <%= f.hidden_field(:image_ids, :value => [@image.id]) %>
   <%= f.submit "Submit" %>
-<% end %>
+<% end %><br>
+
+<h3>Location:</h3>
+
+<div style='width: 800px;'>
+  <div id="map" style="width: 800px; height: 400px;"></div>
+</div>
+
+<script type="text/javascript">
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers(<%= raw @hash.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+  handler.getMap().setZoom(12);
+});
+</script>
