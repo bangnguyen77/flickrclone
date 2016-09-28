@@ -10,6 +10,7 @@ describe "the add an image process" do
     click_on 'Log in'
     click_on 'Add an Image'
     fill_in 'Title', :with => 'Ducklings'
+    fill_in 'Address', :with => 'Portland, OR'
     page.attach_file('Image', 'spec/fixtures/images/ducklings.jpg')
     click_button 'Create Image'
     expect(page).to have_content 'Woohoo! You successfully uploaded an image!'

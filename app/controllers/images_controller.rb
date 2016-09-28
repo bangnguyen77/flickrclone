@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-before_filter :authenticate_user!, except: [:index, :show]
+before_action :authenticate_user!, except: [:index, :show]
   def index
     @images = Image.all
     @hash = Gmaps4rails.build_markers(@images) do |image, marker|
