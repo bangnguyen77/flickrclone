@@ -18,6 +18,7 @@ gem 'geocoder', '~> 1.4'
 gem 'gmaps4rails', '~> 2.1.2'
 
 group :development, :test do
+  gem 'dotenv-rails', :require => 'dotenv/rails-now'
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
   gem 'launchy'
@@ -26,7 +27,6 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'simplecov', require: false
-  gem 'dotenv-rails'
 end
 
 group :development do
