@@ -11,16 +11,17 @@
   None yet!
   <% end %>
 </p>
+<% if current_user %>
+  <h3>Add a tag:</h3>
+  <%= form_for [@image, @tag], :method => "post" do |f| %>
 
-<h3>Add a tag:</h3>
-<%= form_for [@image, @tag], :method => "post" do |f| %>
-
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.hidden_field(:user_ids, :value => [current_user.id]) %>
-  <%= f.hidden_field(:image_ids, :value => [@image.id]) %>
-  <%= f.submit "Submit" %>
-<% end %><br>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+    <%= f.hidden_field(:user_ids, :value => [current_user.id]) %>
+    <%= f.hidden_field(:image_ids, :value => [@image.id]) %>
+    <%= f.submit "Submit" %>
+  <% end %><br>
+<% end %>
 
 <h3>Location:</h3>
 

@@ -1,5 +1,5 @@
 class TagsController < ApplicationController
-before_filter :authenticate_user!, except: [:index, :show]
+before_action :authenticate_user!, except: [:index, :show]
   def new
     @image = Image.find(params[:image_id])
     @user = User.find(current_user.id)

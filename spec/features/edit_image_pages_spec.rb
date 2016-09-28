@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "the edit an image process" do
+describe "the edit an image process", :vcr => true do
   before(:each) do
     image = FactoryGirl.create(:image)
     visit images_path

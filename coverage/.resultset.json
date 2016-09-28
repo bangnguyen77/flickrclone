@@ -99,6 +99,14 @@
         1,
         1,
         null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        6,
+        1,
         null
       ],
       "/Users/Guest/Desktop/flickr_clone/config/environment.rb": [
@@ -798,7 +806,6 @@
         1,
         1,
         1,
-        null,
         1,
         1,
         null
@@ -924,6 +931,17 @@
         1,
         2,
         2,
+        2,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null
       ],
       "/Users/Guest/Desktop/flickr_clone/spec/models/user_spec.rb": [
@@ -934,6 +952,6 @@
         null
       ]
     },
-    "timestamp": 1475097193
+    "timestamp": 1475103645
   }
 }

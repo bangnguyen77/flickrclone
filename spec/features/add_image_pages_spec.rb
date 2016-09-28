@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "the add an image process" do
-  it "allows a user to upload an image" do
+  it "allows a user to upload an image", :vcr => true do
     user = FactoryGirl.create(:user)
     visit images_path
     click_link 'Login'
