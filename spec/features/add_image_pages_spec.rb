@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe "the add an image process" do
-  it "allows a user to upload an image", :vcr => true do
-    user = FactoryGirl.create(:user)
+  it "allows a user to upload an image", :vcr => true, :js => true do
+    image = FactoryGirl.create(:image)
     visit images_path
     click_link 'Login'
     fill_in 'Email', :with => 'person@gmail.com'
@@ -14,6 +14,7 @@ describe "the add an image process" do
     page.attach_file('Image', 'spec/fixtures/images/ducklings.jpg')
     click_button 'Create Image'
     expect(page).to have_content 'Woohoo! You successfully uploaded an image!'
+    result = page.evaluate_script('200')
   end
 
   it "won't save an image without a title" do

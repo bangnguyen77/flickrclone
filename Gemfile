@@ -25,6 +25,8 @@ group :development, :test do
   gem 'pry'
   gem 'shoulda-matchers'
   gem 'capybara'
+  gem 'poltergeist'
+  gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'simplecov', require: false
   gem 'vcr'

@@ -26,7 +26,7 @@ before_action :authenticate_user!, except: [:index, :show]
     @image = Image.new(image_params)
     if @image.save
       flash[:notice] = "Woohoo! You successfully uploaded an image!"
-      redirect_to images_path
+      redirect_to image_path(@image)
     else
       flash[:alert] = "Whoops, your image was not uploaded."
       render :new

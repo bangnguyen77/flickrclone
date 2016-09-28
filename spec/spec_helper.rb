@@ -17,7 +17,13 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'simplecov'
+require 'capybara/poltergeist'
 
+Capybara.javascript_driver = :poltergeist
+options = {js_errors: false}
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, options)
+end
 SimpleCov.start
 
 RSpec.configure do |config|
