@@ -16,6 +16,7 @@ gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk', '~> 2.3'
 gem 'geocoder', '~> 1.4'
 gem 'gmaps4rails', '~> 2.1.2'
+gem 'rest-client'
 
 group :development, :test do
   gem 'dotenv-rails', :require => 'dotenv/rails-now'

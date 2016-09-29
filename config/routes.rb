@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   resources :images do
     resources :tags
   end
+
+
+  resources :messages, :only => [:new, :create]
+
 end

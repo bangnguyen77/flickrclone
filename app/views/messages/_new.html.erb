@@ -1,0 +1,7 @@
+<%= form_for @message, html: { id: :message_new}, :method => "post", remote: true do |f| %>
+  <%= f.label :to %>
+  <%= f.text_field :to %>
+  <%= f.label "Add a message" %>
+  <%= f.text_field :body%>
+  <%= f.submit "Submit" %>
+<% end %><br>

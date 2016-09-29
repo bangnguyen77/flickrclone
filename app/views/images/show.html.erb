@@ -1,7 +1,26 @@
 <h1><%= @image.title %></h1>
 
-<%= image_tag @image.image.url(:medium) %>
+<div class="row">
 
+  <div class="col-sm-6">
+    <%= image_tag @image.image.url(:medium) %>
+  </div>
+
+  <div class="col-sm-6">
+    <% if @message.errors.any? %>
+      <p> Uh oh, here's what happened:</p>
+      <ul>
+        <% @message.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <% if current_user %>
+    <%= link_to "Text this photo to a friend!", new_message_path, id: "new_message", remote: true %>
+    <% end %>
+  </div>
+</div>
 <div>
   <p id="tag">Tags:
     <% if @image.tags.any? %>
