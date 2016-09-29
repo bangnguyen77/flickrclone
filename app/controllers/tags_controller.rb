@@ -18,46 +18,25 @@ before_action :authenticate_user!, except: [:index, :show]
       else
         @image.tags.push(@tag)
         flash[:notice] = "Tag added!"
-        redirect_to image_path(@image)
+        respond_to do |format|
+          format.html {redirect_to image_path(@tag.image.last)}
+          format.js
+        end
       end
     else
       @tag = Tag.new(tag_params)
       if @tag.save
         flash[:notice] = "Tag created!"
-        redirect_to image_path(@image)
+        respond_to do |format|
+          format.html {redirect_to image_path(@tag.image.first)}
+          format.js
+        end
       else
         flash[:alert] = "Whoops, that didn't work."
         redirect_to image_path(@image)
       end
     end
   end
-
-  # def edit
-  #   @image = Image.find(params[:image_id])
-  #   @user = User.find(current_user.id)
-  #   @tag = Tag.find(params[:tag_id])
-  # end
-  #
-  # def update
-  #   @user = User.find(current_user.id)
-  #   @image = Image.find(params[:image_id])
-  #   @tag = Tag.find(params[:tag_id])
-  #   if @image.update(image_params)
-  #     flash[:notice] = "Your image has been edited!"
-  #     redirect_to user_path(@user)
-  #   else
-  #     flash[:alert] = "Whoops, your image was not edited!"
-  #     render :edit
-  #   end
-  # end
-  #
-  # def destroy
-  #   @user = User.find(current_user.id)
-  #   @image = Image.find(params[:id])
-  #   @image.destroy
-  #   flash[:notice] = "Your image has been deleted!"
-  #   redirect_to user_path(@user)
-  # end
 
 private
   def tag_params
