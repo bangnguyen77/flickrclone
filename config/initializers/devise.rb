@@ -6,13 +6,13 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'ec76c506e23b000425a4031f8ba794285ed0b7785064c6a542db4b74311d8bf23ffe1417ec56c06255f6c6711ed2aacdb8f9fcec7bbf9e8da8b64c53ebc3fe09'
+  config.secret_key = 'ec76c506e23b000425a4031f8ba794285ed0b7785064c6a542db4b74311d8bf23ffe1417ec56c06255f6c6711ed2aacdb8f9fcec7bbf9e8da8b64c53ebc3fe09'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'flickr.clone@gmail.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -111,7 +111,7 @@ Devise.setup do |config|
   # config.pepper = 'c106f2f4db6ca185c5efc41eb356000df031a7e9c5241e64f016f11d9c1fbe19fc40d9f5ac25a751b02df15cae7cf3b77725cffd844913550d39d8244fbb45eb'
 
   # Send a notification email when the user's password is changed
-  # config.send_password_change_notification = false
+  config.send_password_change_notification = true
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -133,7 +133,7 @@ Devise.setup do |config|
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
-  config.reconfirmable = true
+  config.reconfirmable = false
 
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]
